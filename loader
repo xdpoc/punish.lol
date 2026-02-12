@@ -1,0 +1,171 @@
+-- Load Rayfield
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+-- Create window
+local Window = Rayfield:CreateWindow({
+	Name = "punish.lol",
+	LoadingTitle = "punish.lol",
+	LoadingSubtitle = "by punish.dev",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = "punishlol",
+		FileName = "Config"
+	},
+	Discord = {
+		Enabled = false,
+		Invite = "",
+		RememberJoins = true
+	},
+	KeySystem = true,
+	KeySettings = {
+		Title = "punish.lol | Key System",
+		Subtitle = "🔐 Verified Service",
+		Note = "🔐 Keys are fully managed by Verified Services",
+		FileName = "punishlol_key",
+		SaveKey = true,
+		GrabKeyFromSite = false,
+		Key = "free67"
+	}
+})
+
+-- Create main hub tab
+local MainTab = Window:CreateTab("Hub", 4483362458)
+
+-- Create header paragraph
+local Header = MainTab:CreateParagraph({
+	Title = "punish.lol",
+	Content = "Welcome to punish.lol\nVerified Script Service\n━━━━━━━━━━━━━━━━━━━━━"
+})
+
+-- Create sections for features
+local CombatSection = MainTab:CreateSection("⚔️ Combat")
+
+local Aimbot = MainTab:CreateToggle({
+	Name = "Aimbot",
+	CurrentValue = false,
+	Flag = "Aimbot",
+	Callback = function(Value)
+		print("Aimbot:", Value)
+	end
+})
+
+local SilentAim = MainTab:CreateToggle({
+	Name = "Silent Aim",
+	CurrentValue = false,
+	Flag = "SilentAim",
+	Callback = function(Value)
+		print("Silent Aim:", Value)
+	end
+})
+
+local Triggerbot = MainTab:CreateToggle({
+	Name = "Triggerbot",
+	CurrentValue = false,
+	Flag = "Triggerbot",
+	Callback = function(Value)
+		print("Triggerbot:", Value)
+	end
+})
+
+local MovementSection = MainTab:CreateSection("🏃 Movement")
+
+local SpeedSlider = MainTab:CreateSlider({
+	Name = "Walk Speed",
+	Range = {16, 100},
+	Increment = 1,
+	Suffix = "studs/s",
+	CurrentValue = 16,
+	Flag = "WalkSpeed",
+	Callback = function(Value)
+		print("Walk Speed set to:", Value)
+	end
+})
+
+local JumpSlider = MainTab:CreateSlider({
+	Name = "Jump Power",
+	Range = {50, 200},
+	Increment = 5,
+	Suffix = "power",
+	CurrentValue = 50,
+	Flag = "JumpPower",
+	Callback = function(Value)
+		print("Jump Power set to:", Value)
+	end
+})
+
+local VisualSection = MainTab:CreateSection("👁️ Visuals")
+
+local ESP = MainTab:CreateToggle({
+	Name = "Player ESP",
+	CurrentValue = false,
+	Flag = "ESP",
+	Callback = function(Value)
+		print("ESP:", Value)
+	end
+})
+
+local Chams = MainTab:CreateToggle({
+	Name = "Chams",
+	CurrentValue = false,
+	Flag = "Chams",
+	Callback = function(Value)
+		print("Chams:", Value)
+	end
+})
+
+-- Create settings tab
+local SettingsTab = Window:CreateTab("Settings", 4483362458)
+
+local SettingsSection = SettingsTab:CreateSection("⚙️ Configuration")
+
+local ThemePicker = SettingsTab:CreateDropdown({
+	Name = "UI Theme",
+	Options = {"Default", "Dark", "Light", "Purple", "Blue"},
+	CurrentOption = {"Default"},
+	Flag = "Theme",
+	Callback = function(Option)
+		print("Theme changed to:", Option[1])
+	end
+})
+
+local Notifications = SettingsTab:CreateToggle({
+	Name = "Notifications",
+	CurrentValue = true,
+	Flag = "Notifications",
+	Callback = function(Value)
+		print("Notifications:", Value)
+	end
+})
+
+-- Create key info tab (with the requested message)
+local KeyTab = Window:CreateTab("Key", 4483362458)
+
+local KeyInfo = KeyTab:CreateParagraph({
+	Title = "🔐 Key System",
+	Content = "🔐 Keys are fully managed by Verified Services\n━━━━━━━━━━━━━━━━━━━━━\n\n• Keys are verified through Rayfield\n• Automatic key saving enabled\n• One-time verification required\n\nAccess granted upon successful verification."
+})
+
+-- Create scripts tab
+local ScriptsTab = Window:CreateTab("Scripts", 4483362458)
+
+local ScriptsSection = ScriptsTab:CreateSection("📜 Loader")
+
+local LoadScript = ScriptsTab:CreateButton({
+	Name = "Load Universal Script",
+	Callback = function()
+		Rayfield:Notify({
+			Title = "punish.lol",
+			Content = "Loading Universal Script...",
+			Duration = 2,
+			Image = 4483362458
+		})
+	end
+})
+
+-- Notify successful load
+Rayfield:Notify({
+	Title = "punish.lol",
+	Content = "Verified script loaded successfully",
+	Duration = 3,
+	Image = 4483362458
+})
